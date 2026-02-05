@@ -1,0 +1,251 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  :root {
+    /* --- INDUSTRIAL NEUTRALS & THAI ACCENTS THEME --- */
+
+    /* Core Brand Palette */
+    --brand-primary: #2D2D2D; /* Charcoal */
+    --brand-accent: #C41E3A; /* Deep Thai Red */
+    --brand-tint: #F5F5F5; /* Off-white for subtle backgrounds */
+    --brand-dark: #1A1A1A; /* Near-black for primary text */
+    --brand-bg: #FFFFFF; /* Clean white background */
+    --brand-white: #FFFFFF;
+
+    /* Typography */
+    --brand-text: var(--brand-dark);
+    --brand-subtext: #666666; /* Neutral gray for secondary text */
+
+    /* Gradient Variations */
+    --brand-blue-light: #A9A9A9; /* Steel gray */
+    --brand-blue-dark: #404040; /* Darker charcoal */
+
+    /* Card Themes - Industrial neutrals with accent touches */
+    --brand-card-1-light: #EEEEEE;
+    --brand-card-1: #D3D3D3;
+    --brand-card-2-light: #F0F0F0;
+    --brand-card-2: #C0C0C0;
+
+    /* Font Families */
+    --font-heading: "Reddit Sans", serif;
+    --font-body: "Reddit Sans", sans-serif;
+  }
+}
+
+/* --- UTILITIES --- */
+@layer utilities {
+  /* Text colors */
+  .text-brand-primary {
+    color: var(--brand-primary);
+  }
+  .text-brand-accent {
+    color: var(--brand-accent);
+  }
+  .text-brand-dark {
+    color: var(--brand-dark);
+  }
+  .text-brand-white {
+    color: var(--brand-white);
+  }
+  .text-brand-text {
+    color: var(--brand-text);
+  }
+  .text-brand-subtext {
+    color: var(--brand-subtext);
+  }
+
+  /* Background colors */
+  .bg-brand-primary {
+    background-color: var(--brand-primary);
+  }
+  .bg-brand-accent {
+    background-color: var(--brand-accent);
+  }
+  .bg-brand-dark {
+    background-color: var(--brand-dark);
+  }
+  .bg-brand-tint {
+    background-color: var(--brand-tint);
+  }
+  .bg-brand-bg {
+    background-color: var(--brand-bg);
+  }
+  .bg-brand-white {
+    background-color: var(--brand-white);
+  }
+  .bg-brand-card-1-light {
+    background-color: var(--brand-card-1-light);
+  }
+  .bg-brand-card-2-light {
+    background-color: var(--brand-card-2-light);
+  }
+
+  /* Gradient utilities */
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, var(--brand-blue-dark) 0%, var(--brand-blue-light) 100%);
+  }
+  .bg-gradient-primary-reverse {
+    background: linear-gradient(135deg, var(--brand-blue-light) 0%, var(--brand-blue-dark) 100%);
+  }
+
+  /* Border colors */
+  .border-brand-primary {
+    border-color: var(--brand-primary);
+  }
+  .border-brand-accent {
+    border-color: var(--brand-accent);
+  }
+  .border-brand-dark {
+    border-color: var(--brand-dark);
+  }
+
+  /* Scrollbar utilities */
+  .scroll-horizontal {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  .scroll-vertical {
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* --- BASE & GLOBAL STYLES --- */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--brand-text);
+  font-family: var(--font-body);
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+/* --- 3D UTILITIES (Unchanged) --- */
+.perspective {
+  perspective: 1000px;
+}
+.transform-style {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* --- MODERN THEME SYSTEM (shadcn/ui or similar) --- */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  /* Other variables remain linked */
+}
+
+/* --- LIGHT MODE --- */
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0); /* White */
+  --foreground: oklch(0.1 0.02 0); /* Near-black */
+  --card: oklch(1 0 0); /* White */
+  --card-foreground: oklch(0.1 0.02 0); /* Near-black */
+  --popover: oklch(1 0 0); /* White */
+  --popover-foreground: oklch(0.1 0.02 0); /* Near-black */
+  --primary: oklch(0.18 0.04 0); /* Charcoal */
+  --primary-foreground: oklch(1 0 0); /* White */
+  --secondary: oklch(0.97 0.01 0); /* Off-white */
+  --secondary-foreground: oklch(0.1 0.02 0); /* Near-black */
+  --muted: oklch(0.93 0.02 0); /* Light gray */
+  --muted-foreground: oklch(0.4 0.03 0); /* Medium gray */
+  --accent: oklch(0.46 0.23 20); /* Deep Thai Red */
+  --accent-foreground: oklch(1 0 0); /* White */
+  /* Additional accent helpers used by components */
+  --accent-2: oklch(0.46 0.06 20); /* muted accent for backgrounds */
+  --accent-gradient: linear-gradient(90deg, oklch(0.46 0.23 20) 0%, oklch(0.56 0.24 20) 100%);
+  --destructive: oklch(0.577 0.245 27.325); /* Unchanged (Standard Red for errors) */
+  --border: oklch(0.85 0.02 0); /* Light gray border */
+  --input: oklch(0.95 0.01 0); /* Very light gray input BG */
+  --ring: oklch(0.46 0.23 20); /* Deep Thai Red for focus ring */
+}
+
+/* --- DARK MODE --- */
+.dark {
+  --background: oklch(0.12 0.02 0); /* Very dark charcoal BG */
+  --foreground: oklch(0.95 0.01 0); /* Near-white text */
+  --card: oklch(0.18 0.03 0); /* Dark charcoal card BG */
+  --card-foreground: oklch(0.95 0.01 0); /* Near-white text */
+  --popover: oklch(0.18 0.03 0); /* Dark charcoal popover BG */
+  --popover-foreground: oklch(0.95 0.01 0); /* Near-white text */
+  --primary: oklch(0.4 0.05 0); /* Medium charcoal (lighter for contrast) */
+  --primary-foreground: oklch(0.95 0.01 0); /* Near-white text */
+  --secondary: oklch(0.22 0.04 0); /* Dark gray */
+  --secondary-foreground: oklch(0.95 0.01 0); /* Near-white text */
+  --muted: oklch(0.22 0.04 0); /* Dark gray */
+  --muted-foreground: oklch(0.7 0.02 0); /* Light gray text */
+  --accent: oklch(0.56 0.24 20); /* Brighter Thai Red (pops on dark BG) */
+  --accent-foreground: oklch(1 0 0); /* White */
+  --accent-2: oklch(0.56 0.06 20);
+  --accent-gradient: linear-gradient(90deg, oklch(0.56 0.24 20) 0%, oklch(0.46 0.23 20) 100%);
+  --destructive: oklch(0.704 0.191 22.216); /* Unchanged (Standard Red for errors) */
+  --border: oklch(0.25 0.03 0); /* Dark gray border */
+  --input: oklch(0.25 0.03 0); /* Dark gray input BG */
+  --ring: oklch(0.56 0.24 20); /* Brighter Thai Red for focus ring */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+@import "tailwindcss";
+
+@theme inline {
+  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+}
